@@ -13,8 +13,8 @@ after_success:
 - mv * build
 - tar -czf package.tgz build
 - export SSHPASS=$DEPLOY_PASS
-- sshpass -e scp package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH -p $DEPLOY_PORT
-- sshpass -e ssh $DEPLOY_USER@$DEPLOY_HOST -p $DEPLOY_PORT $DEPLOY_PATH/deploy.sh 
+- sshpass -e scp -P $DEPLOY_PORT package.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+- sshpass -e ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST -p $DEPLOY_PORT $DEPLOY_PATH/deploy.sh
 env:
   global:
   - secure: emQ7s5kowY0/Uz198/46TgPd5I85YWmzJeAOfAR/GKiOItE+CnsKEFl1KVshn3tAk5YjBttAmF2GehfN8guWvEL7krs7Db7Yq13rA62OqFAaD4H6vwTJAW1sbf53FegToIYk8ni3rk2qk4dRvz6+Xa7T9bQYZzytizmD+5r1CzR4c2h2RYbfS9r30oHyjN+2qXDIiNBF8xHdaazXrYaMF/AP3TZoQRGSVCxZwvzqr1Ka5CjUFyhY5HVB0tjrclZ5DTEGbMZmPZjPT5kmLjy4YvCKo4tYd8dNxbXmlMhigyX/BNxbBXJ0fLXc390CfTgyUcV3Aru2OSZBpSWE18qkB0ndZVTIsdJQr1B2W8d+nSNaZhJKsOdPVJnJS0msl5eqTdBtWetffyIhm5ac5xWbhL6oFuCaEca1VLUwbGa0sl4yicE7ajhIQ+7l3buPqToNhvz27C4zncJkSuhvVU263P2gMt1DmrsDL4mKZOe3Gj2XboW/A0DRNVoIfKr+91Aud6Bg+wYdZkTFgbMsbBQhgvb2tZ++nI25SwI5MVDXtbtESi/oaxVsJWPUuCB50WcSeEtImrZvpZouSd+Y3mvm5+7x2nmmtvlgrUEXhYc22dszfe6rZcySGuj6SoQN8nr/GqkrmARFuG8OAQA2n/QqoSfTg0Pko9ojjzGP3UMhXAE=
